@@ -1,0 +1,6 @@
+/home/mchoment/ZAMP/repo/ZMP/build/CMakeFiles/cmds_interpreter.dir
+/home/mchoment/ZAMP/repo/ZMP/build/CMakeFiles/edit_cache.dir
+/home/mchoment/ZAMP/repo/ZMP/build/CMakeFiles/rebuild_cache.dir
+/home/mchoment/ZAMP/repo/ZMP/build/plugin/CMakeFiles/Interp4Move.dir
+/home/mchoment/ZAMP/repo/ZMP/build/plugin/CMakeFiles/edit_cache.dir
+/home/mchoment/ZAMP/repo/ZMP/build/plugin/CMakeFiles/rebuild_cache.dir
