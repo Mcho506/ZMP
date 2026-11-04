@@ -6,7 +6,7 @@
 #define ZALAZEK_CMAKE_LIBINTERFACES_H
 
 
-class LibInterfaces
+class LibInterface
 {
 };
 

@@ -6,8 +6,12 @@
 #define ZALAZEK_CMAKE_SET4LIBINTERFACES_H
 
 
-class Set4LibInterfaces
+#define PLUGIN_NAME__move "libInterp4Move.so"
+
+
+class Set4LibInterface
 {
+
 };
 
 

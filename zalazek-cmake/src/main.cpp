@@ -3,9 +3,10 @@
 #include <cassert>
 #include "AbstractInterp4Command.hh"
 
+#define PLUGIN_NAME__move "libInterp4Move.so"
+
 using namespace std;
 
-#define PLUGIN_NAME__move "libInterp4Move.so"
 
 
 int main()
@@ -28,6 +29,7 @@ int main()
   if (pFun) {
     cout  << ":)  Funkcja \"CreateCmdInterp\" zostala znaleziona we wtyczce "
 	  << "\"" << PLUGIN_NAME__move << "\"." << endl;
+
   } else {
      cerr << "!!! Nie znaleziono funkcji CreateCmdInterp" << endl;
      return 1;

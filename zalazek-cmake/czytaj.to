@@ -21,3 +21,4 @@ Uwaga: Po wygenerowaniu dokumentacji uruchamiany jest program less,
        zglasza program doxygen. Aby zakonczyc jego dzialanie i wyjsc
        z trybu przegladania, nalezy nacisnac klawisz 'Q'.
 
+cmake ../zalazek-cmake/ -DCMAKE_POLICY_VERSION_MINIMUM=3.5

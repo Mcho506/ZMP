@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Interp4Move.hh"
+#include "../inc/Interp4Move.hh"
 
 
 using std::cout;
