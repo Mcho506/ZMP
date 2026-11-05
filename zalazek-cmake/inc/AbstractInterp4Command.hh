@@ -23,7 +23,10 @@
     /*!
      * \brief Wyświetla składnię polecenia
      */
-     virtual void PrintSyntax() const = 0;
+    virtual void PrintSyntax() const = 0;
+    virtual bool ReadParams();
+    virtual bool ExecCmd(); 
+
   };
 
 
