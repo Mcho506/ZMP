@@ -1,49 +1,53 @@
 #include <iostream>
-#include <dlfcn.h>
-#include <cassert>
+#include <fstream>
+#include <string>
+#include "Set4LibInterface.h"
 #include "AbstractInterp4Command.hh"
 
-#define PLUGIN_NAME__move "libInterp4Move.so"
 
 using namespace std;
 
-
-
 int main()
 {
-  void *pLibHnd_Move = dlopen(PLUGIN_NAME__move,RTLD_LAZY);
-  AbstractInterp4Command *(*pCreateCmdInterp_Move)(void);
-  void *pFun;
+    // Utworzenie obiektu
+    Set4LibInterface S4L;
+    // Wczytywanie pluginów
+    if (!S4L.AddPlugin("Move",   "libInterp4Move.so"))   return 1;
+    if (!S4L.AddPlugin("Set",    "libInterp4Set.so"))    return 1;
+    if (!S4L.AddPlugin("Rotate", "libInterp4Rotate.so")) return 1;
+    if (!S4L.AddPlugin("Pause",  "libInterp4Pause.so"))  return 1;
 
-  if (pLibHnd_Move) {
-    cout << endl
-	 << ":)  Wtyczka \"" << PLUGIN_NAME__move << "\" zostala poprawnie zaladowana."
-	 << endl;
-  } else {
-     cerr << "!!! Brak wtyczki: " PLUGIN_NAME__move << endl;
-     return 1;
-  }
+    ifstream CmdFile("cmd.txt");
+    if (!CmdFile.is_open()) {
+        cerr << "!!! Nie mozna otworzyc pliku cmd.txt" << endl;
+        return 1;
+    }
 
-
-  pFun = dlsym(pLibHnd_Move,"CreateCmdInterp");
-  if (pFun) {
-    cout  << ":)  Funkcja \"CreateCmdInterp\" zostala znaleziona we wtyczce "
-	  << "\"" << PLUGIN_NAME__move << "\"." << endl;
-
-  } else {
-     cerr << "!!! Nie znaleziono funkcji CreateCmdInterp" << endl;
-     return 1;
-  }
-  pCreateCmdInterp_Move = reinterpret_cast<AbstractInterp4Command* (*)(void)>(pFun);
+    string CmdName;
+    while (CmdFile >> CmdName) {
+        // Znajdź wtyczkę
+        auto pLib = S4L.FindPlugin(CmdName);
+        if (!pLib) {
+            cerr << "!!! Nie znaleziono wtyczki dla polecenia: " << CmdName << endl;
+            continue;
+        }
 
 
-  AbstractInterp4Command *pInterp = pCreateCmdInterp_Move();
+        // Utwórz interpreter
+        AbstractInterp4Command* pInterp = pLib->CreateInterpreter();
+        if (!pInterp) {
+            cerr << "!!! Nie mozna utworzyc interpretera dla: " << CmdName << endl;
+            continue;
+        }
 
-  cout << endl;
-  pInterp->PrintSyntax();
-  cout << endl;
-  
-  delete pInterp;
+        cout << "Polecenie: " << CmdName << endl;
+        // Wypisanie składni
+        pInterp->PrintSyntax();
+        cout << endl;
 
-  dlclose(pLibHnd_Move);
+        delete pInterp;
+    }
+
+    CmdFile.close();
+    return 0;
 }

@@ -23,4 +23,4 @@ Interp4Set::Interp4Set()
 void Interp4Set::PrintSyntax() const
 {
     cout << "   Umieszczenie NazwaObiektu na ws" << endl;
-}
+} 

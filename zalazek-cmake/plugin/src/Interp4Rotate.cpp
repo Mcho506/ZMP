@@ -22,5 +22,5 @@ Interp4Rotate::Interp4Rotate()
 
 void Interp4Rotate::PrintSyntax() const
 {
-    cout << "   Rotate  NazwaObiektu    preędkość kątowa[deg/s] Kąt[deg] " << endl;
+    cout << "   Rotate  NazwaObiektu    prędkość kątowa[deg/s] Kąt[deg] " << endl;
 }
