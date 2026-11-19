@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/cinek/robimyco/repos/zamp/zad/build/cmake_install.cmake",
+		"/home/cinek/robimyco/repos/zamp/zad/build/plugin/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -16,7 +16,7 @@ Set4LibInterface::~Set4LibInterface()
 // Dodawanie wtyczki
 bool Set4LibInterface::AddPlugin(const string& CmdName, const string& LibName)
 {
-    auto pLib = make_shared<LibInterface>();
+    std::shared_ptr<LibInterface> pLib = make_shared<LibInterface>();
     if (!pLib->Init(LibName)) {
         return false;
     }
@@ -28,9 +28,26 @@ bool Set4LibInterface::AddPlugin(const string& CmdName, const string& LibName)
 shared_ptr<LibInterface> Set4LibInterface::FindPlugin(const string& CmdName) const
 {
     // Szuka klucz w mapie
-    auto it = _LibCollection.find(CmdName);
+    std::map<std::string, std::shared_ptr<LibInterface>>::const_iterator it = _LibCollection.find(CmdName);
     if (it == _LibCollection.end()) {
         return nullptr;
     }
     return it->second;
+}
+
+int Set4LibInterface::AddAllPlugins()
+{
+    if (!AddPlugin("Move",   "libInterp4Move.so")) {
+        return 1;
+    }
+    if (!AddPlugin("Set",    "libInterp4Set.so")) {
+        return 1;
+    }
+    if (!AddPlugin("Rotate", "libInterp4Rotate.so")) {
+        return 1;
+    }
+    if (!AddPlugin("Pause",  "libInterp4Pause.so")) {
+        return 1;
+    }
+    return 0;
 }

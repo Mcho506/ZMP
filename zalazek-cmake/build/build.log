@@ -1,0 +1,46 @@
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at plugin/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/cinek/robimyco/repos/zamp/zad/zalazek-cmake/build
+===CMAKE_EXIT=0===
+[  8%] Building CXX object CMakeFiles/cmds_interpreter.dir/src/main.cpp.o
+[ 16%] Building CXX object CMakeFiles/cmds_interpreter.dir/src/Set4LibInterface.cpp.o
+[ 25%] Building CXX object CMakeFiles/cmds_interpreter.dir/src/LibInterface.cpp.o
+[ 33%] Linking CXX executable cmds_interpreter
+
+ Utworzony zostal program:  cmds_interpreter
+
+[ 33%] Built target cmds_interpreter
+[ 41%] Building CXX object plugin/CMakeFiles/Interp4Move.dir/src/Interp4Move.cpp.o
+[ 50%] Linking CXX shared module libInterp4Move.so
+[ 50%] Built target Interp4Move
+[ 58%] Building CXX object plugin/CMakeFiles/Interp4Set.dir/src/Interp4Set.cpp.o
+[ 66%] Linking CXX shared module libInterp4Set.so
+[ 66%] Built target Interp4Set
+[ 75%] Building CXX object plugin/CMakeFiles/Interp4Rotate.dir/src/Interp4Rotate.cpp.o
+[ 83%] Linking CXX shared module libInterp4Rotate.so
+[ 83%] Built target Interp4Rotate
+[ 91%] Building CXX object plugin/CMakeFiles/Interp4Pause.dir/src/Interp4Pause.cpp.o
+[100%] Linking CXX shared module libInterp4Pause.so
+[100%] Built target Interp4Pause
+===BUILD_EXIT=0===

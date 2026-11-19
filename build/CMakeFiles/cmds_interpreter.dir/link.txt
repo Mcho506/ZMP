@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wl,-rpath=./plugin -Wl,--dependency-file=CMakeFiles/cmds_interpreter.dir/link.d CMakeFiles/cmds_interpreter.dir/src/main.cpp.o CMakeFiles/cmds_interpreter.dir/src/Set4LibInterface.cpp.o CMakeFiles/cmds_interpreter.dir/src/LibInterface.cpp.o -o cmds_interpreter
