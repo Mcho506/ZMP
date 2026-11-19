@@ -10,10 +10,16 @@ include_directories(${PROJECT_SOURCE_DIR}/inc)
 add_executable(${PROJECT_NAME} src/main.cpp
         src/Set4LibInterface.cpp
         src/LibInterface.cpp
+        src/Scene.cpp
+        src/ProgramInterpreter.cpp
+        src/GeomObject.cpp
 )
+set_target_properties(cmds_interpreter PROPERTIES ENABLE_EXPORTS ON)
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wl,-rpath=./plugin")
 add_custom_command(TARGET ${PROJ_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E echo ""
     COMMAND ${CMAKE_COMMAND} -E echo " Utworzony zostal program:  ${PROJ_NAME}"
     COMMAND ${CMAKE_COMMAND} -E echo ""
   )
+
+
