@@ -41,7 +41,7 @@ bool Interp4Set::ExecCmd(Scene& Scn) {
     std::shared_ptr<GeomObject> obj = Scn.FindGeomObj(_ObjectName);
     if (obj == nullptr) {
         Scn.AddGeomObj(_ObjectName);
-        obj = Scn.FindGeomObj(_ObjectName);
+        obj = Scn.FindGeomObj(_ObjectName); 
         obj->SetName(_ObjectName);
         obj->SetPos_m(_X, _Y, _Z);
     } else {

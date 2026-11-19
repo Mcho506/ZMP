@@ -1,5 +1,6 @@
 Set pierwszy 1 2 3
 Move pierwszy 1 1 2 3
+Rotate pierwszy 30 5
 Set drugi 3 2 1
 Move drugi 1 1 2 3
 Move trzeci 0 0 0

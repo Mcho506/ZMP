@@ -19,9 +19,9 @@ bool Scene::AddGeomObj(const std::string& ObjName) {
 }
 
 std::shared_ptr<GeomObject> Scene::FindGeomObj(const std::string& ObjName) {
-    std::shared_ptr<GeomObject> it = this->find(ObjName)->second;
-    if (it != nullptr) {
-        return it;
+    std::map<std::string, std::shared_ptr<GeomObject>>::iterator it = this->find(ObjName);
+    if (it == this->end()) {
+        return nullptr; 
     }
-    return nullptr;
+    return it->second;
 }

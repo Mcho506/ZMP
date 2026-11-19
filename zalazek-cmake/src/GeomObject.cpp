@@ -21,3 +21,10 @@ Vector3D& GeomObject::SetPos_m(int X, int Y, int Z) {
     _Pos_m = Vector3D(X, Y, Z);
     return _Pos_m;
 }
+
+const int GeomObject::GetRotation() const {
+    return _Rotation;
+}
+int GeomObject::ModRotation(int deg) {
+    return _Rotation += deg;
+}

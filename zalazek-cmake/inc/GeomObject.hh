@@ -8,6 +8,7 @@ typedef g3d::Vector Vector3D;
 
 class GeomObject {
 private:
+    int _Rotation;
     Vector3D _Pos_m;
     std::string _Name;
 
@@ -22,6 +23,8 @@ public:
     Vector3D& ModPos_m(int X, int Y, int Z);
 
     Vector3D& SetPos_m(int X, int Y, int Z);
+    const int GetRotation() const;
+    int ModRotation(int deg);
 };
 
 #endif

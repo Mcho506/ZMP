@@ -48,7 +48,7 @@ bool Interp4Move::ReadParams(std::istream& Strm_CmdsList) {
 }
 
 void Interp4Move::PrintCmd() const {
-    std::cout << "Move -- przesuń " << _ObjectName << " z prędkością " << _Speed << "m/s na pozycję " << _X << ", " << _Y << ", " << _Z << std::endl;
+    std::cout << "Move -- przesuń " << _ObjectName << " na pozycję " << _X << ", " << _Y << ", " << _Z << std::endl;
 }
 
 

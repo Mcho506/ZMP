@@ -31,10 +31,16 @@ bool Interp4Rotate::ReadParams(std::istream& Strm_CmdsList) {
 }
 
 void Interp4Rotate::PrintCmd() const {
-    std::cout << "Rotate  -- obróć o " << _Angle << " stopni z prędkością kątową " << _RotationSpeed << " deg/s" << std::endl;
+    std::cout << "Rotate  -- obróć o " << _Angle << " deg/s" << std::endl;
 }
 
 bool Interp4Rotate::ExecCmd(Scene& Scn) {
-    // Tutaj zaimplementujesz logikę ruchu obiektu na scenie
+    std::shared_ptr<GeomObject> obj = Scn.FindGeomObj(_ObjectName);
+    if (obj == nullptr) {
+        std::cerr << "Błąd wykonania Rotate obiekt " << _ObjectName << " nie istnieje!" << std::endl;
+    
+        return false;
+    }
+
     return true;
 }
