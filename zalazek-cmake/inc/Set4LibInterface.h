@@ -10,14 +10,12 @@
 #include <string>
 #include "LibInterface.h"
 
-/*!
- * \brief Obsluguje kolekcje wtyczek (obiektow klasy LibInterface).
- *
- *  Umozliwia odwzorowanie nazwy polecenia na obiekt klasy LibInterface,
- *  ktory daje dostep do wtyczki obslugujacej dane polecenie.
- */
+
 class Set4LibInterface
 {
+private:
+    // mapowanie nazwy polecenia na wtyczkę
+    std::map<std::string, std::shared_ptr<LibInterface>> _LibCollection;
 public:
     // Konstruktor
     Set4LibInterface() = default;
@@ -27,10 +25,9 @@ public:
     // Dodawanie wtyczki
     bool AddPlugin(const std::string& CmdName, const std::string& LibName);
     std::shared_ptr<LibInterface> FindPlugin(const std::string& CmdName) const;
+    int AddAllPlugins();
 
-private:
-    // mapowanie nazwy polecenia na wtyczkę
-    std::map<std::string, std::shared_ptr<LibInterface>> _LibCollection;
+
 };
 
 #endif //ZALAZEK_CMAKE_SET4LIBINTERFACES_H
