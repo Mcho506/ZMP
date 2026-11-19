@@ -41,6 +41,8 @@ bool Interp4Rotate::ExecCmd(Scene& Scn) {
     
         return false;
     }
+    obj.ModRotation(_Angle);
+    
 
     return true;
 }
