@@ -1,53 +1,22 @@
 #include <iostream>
-#include <fstream>
-#include <string>
-#include "Set4LibInterface.h"
-#include "AbstractInterp4Command.hh"
-
+#include "ProgramInterpreter.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
 {
-    // Utworzenie obiektu
-    Set4LibInterface S4L;
-    // Wczytywanie pluginów
-    if (!S4L.AddPlugin("Move",   "libInterp4Move.so"))   return 1;
-    if (!S4L.AddPlugin("Set",    "libInterp4Set.so"))    return 1;
-    if (!S4L.AddPlugin("Rotate", "libInterp4Rotate.so")) return 1;
-    if (!S4L.AddPlugin("Pause",  "libInterp4Pause.so"))  return 1;
+    // Sprawdzenie czy podano inny plik z poleceniami niż cmd.txt jako argument wywołania programu
+    const char* fileName = (argc > 1) ? argv[1] : "cmd.txt";
 
-    ifstream CmdFile("cmd.txt");
-    if (!CmdFile.is_open()) {
-        cerr << "!!! Nie mozna otworzyc pliku cmd.txt" << endl;
+    // Utworzenie obiektu interpretera programu (automatycznie ładuje wszystkie wtyczki)
+    ProgramInterpreter Interpreter;
+
+    // Wykonanie programu
+    if (!Interpreter.ExecProgram(fileName)) {
+        cerr << "!!! Wykonywanie programu '" << fileName << "' zakonczone bledem." << endl;
         return 1;
     }
 
-    string CmdName;
-    while (CmdFile >> CmdName) {
-        // Znajdź wtyczkę
-        auto pLib = S4L.FindPlugin(CmdName);
-        if (!pLib) {
-            cerr << "!!! Nie znaleziono wtyczki dla polecenia: " << CmdName << endl;
-            continue;
-        }
-
-
-        // Utwórz interpreter
-        AbstractInterp4Command* pInterp = pLib->CreateInterpreter();
-        if (!pInterp) {
-            cerr << "!!! Nie mozna utworzyc interpretera dla: " << CmdName << endl;
-            continue;
-        }
-
-        cout << "Polecenie: " << CmdName << endl;
-        // Wypisanie składni
-        pInterp->PrintSyntax();
-        cout << endl;
-
-        delete pInterp;
-    }
-
-    CmdFile.close();
+    cout << "Koniec programu" << endl;
     return 0;
 }

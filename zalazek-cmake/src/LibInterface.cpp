@@ -47,7 +47,7 @@ bool LibInterface::Init(const string& LibName)
 }
 
 
-// Utworzenie obiektu interpretera np. Interp4Set
+// tworzenie obiektu klasy pochodnej
 AbstractInterp4Command* LibInterface::CreateInterpreter() const
 {
     if (!_pCreateCmd) {

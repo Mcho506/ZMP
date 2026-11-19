@@ -12,9 +12,17 @@
 
 class Interp4Set : public AbstractInterp4Command
 {
+private:
+    std::string _ObjectName; // Nazwa obiektu, na którym operuje polecenie
+    int _X;
+    int _Y;
+    int _Z;
 public:
     Interp4Set();
     virtual void PrintSyntax() const override;
+    virtual void PrintCmd() const override;
+    virtual bool ReadParams(std::istream& Strm_CmdsList) override;
+    virtual bool ExecCmd(Scene& Scn) override; 
 };
 
 #endif //ZALAZEK_CMAKE_INTERP4SET_H

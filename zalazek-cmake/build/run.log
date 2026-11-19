@@ -1,0 +1,15 @@
+Polecenie: Set
+   Umieszczenie NazwaObiektu na ws
+
+Polecenie: Move
+   Move  NazwaObiektu  Szybkosc[m/s]  DlugoscDrogi[m]
+
+Polecenie: Rotate
+   Rotate  NazwaObiektu    prędkość kątowa[deg/s] Kąt[deg] 
+
+Polecenie: Pause
+   Zatrzymanie NazwaObiektu    
+
+Polecenie: Move
+   Move  NazwaObiektu  Szybkosc[m/s]  DlugoscDrogi[m]
+
